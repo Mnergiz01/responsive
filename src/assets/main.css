@@ -1,35 +1,182 @@
-@import './base.css';
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
-#app {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  font-weight: normal;
+body {
+    margin: 0;
+    background-color: #000;
+    color: #eee;
+    font-family: 'Poppins', sans-serif;
+    font-size: 12px;
 }
 
-a,
-.green {
-  text-decoration: none;
-  color: hsla(160, 100%, 37%, 1);
-  transition: 0.4s;
-  padding: 3px;
+a {
+    text-decoration: none;
+    color: #eee;
+    transition: 0.3s;
 }
 
-@media (hover: hover) {
-  a:hover {
-    background-color: hsla(160, 100%, 37%, 0.2);
-  }
-}
-
-@media (min-width: 1024px) {
-  body {
+header {
+    width: 1140px;
+    max-width: 80%;
+    margin: auto;
+    height: 50px;
     display: flex;
-    place-items: center;
-  }
+    align-items: center;
+    position: relative;
+    z-index: 100;
+}
 
-  #app {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    padding: 0 2rem;
-  }
+header a {
+    margin-right: 5px;
+    padding: 5px 10px;
+}
+
+a.active, header a:hover {
+    background: #14ff72cb;
+    border-radius: 4px;
+}
+
+/* Slider Bölümü */
+.slider {
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    position: relative;
+}
+
+.slider .list .item {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    inset: 0;
+}
+
+.slider .list .item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.slider .list .item .content {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    color: #fff;
+    text-shadow: 0 5px 10px #0004;
+    text-align: center;
+}
+
+.slider .list .item .content .title {
+    font-size: 4em;
+    font-weight: bold;
+    line-height: 1.2em;
+}
+
+.slider .list .item .content .type {
+    font-size: 1.5em;
+    font-weight: 600;
+    color: #14ff72cb;
+}
+
+.slider .list .item .button {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.slider .list .item .button button {
+    border: none;
+    padding: 10px 20px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: 0.3s;
+    font-weight: 500;
+    letter-spacing: 1px;
+}
+
+.slider .list .item .button button:hover {
+    letter-spacing: 2px;
+}
+
+/* Küçük Resimler Bölümü */
+.thumbnail {
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 15px;
+}
+
+.thumbnail .item {
+    width: 120px;
+    height: 180px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.thumbnail .item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+.thumbnail .item:hover img {
+    transform: scale(1.05);
+}
+
+/* Ok Butonları */
+.nextPrevArrows {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 15px;
+}
+
+.nextPrevArrows button {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #14ff72cb;
+    border: none;
+    color: #fff;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.nextPrevArrows button:hover {
+    background-color: #fff;
+    color: #000;
+}
+
+/* Responsive Tasarım */
+@media screen and (max-width: 768px) {
+    .slider .list .item .content .title {
+        font-size: 2.5em;
+    }
+
+    .slider .list .item .content .type {
+        font-size: 1.2em;
+    }
+
+    .thumbnail {
+        bottom: 30px;
+    }
+
+    .thumbnail .item {
+        width: 90px;
+        height: 135px;
+    }
+
+    .nextPrevArrows button {
+        width: 35px;
+        height: 35px;
+    }
 }
